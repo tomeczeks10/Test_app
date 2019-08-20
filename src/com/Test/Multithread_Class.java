@@ -26,7 +26,7 @@ public class Multithread_Class{
 
         String fileName=null;
         String line;
-        String split=",";
+        String split="\\|";
 
         List<String> result = new LinkedList<>();
 
@@ -52,7 +52,10 @@ public class Multithread_Class{
                 while ((line = bufferedReader.readLine()) != null) {
                     if (header != 0 && !line.startsWith("Trailer")) {
                         String[] data = line.split(split);
-                        System.out.println(data[0] + "|" + data[1] + "|" + data[2]);
+                        System.out.println(data[0] + "|" + data[1] + "|" + data[2]+ "|" + data[3]+ "|" + data[4]+ "|" + data[5]+ "|" + data[6]+ "|" + data[7]+ "|" + data[8]+ "|" + data[9]+ "|" + data[10]
+                                + "|" + data[11]+ "|" + data[12]+ "|" + data[13]+ "|" + data[14]+ "|" + data[15]+ "|" + data[16]+ "|" + data[17]+ "|" + data[18]+ "|" + data[19]+ "|" + data[20]+ "|" + data[21]
+                                + "|" + data[22]+ "|" + data[23]+ "|" + data[24]+ "|" + data[25]+ "|" + data[26]+ "|" + data[27]+ "|" + data[28]+ "|" + data[29]+ "|" + data[30]+ "|" + data[31]+ "|" + data[32]
+                                + "|" + data[35]);
                     } else if (header == 0) {
                         String[] head = line.split(split);
                         System.out.println(head[0] + "|" + head[1] + "|" + head[2]);
@@ -68,6 +71,8 @@ public class Multithread_Class{
             }
         }
 
+        Task1_Class t = new Task1_Class();
+        t.connctdata();
 
 
          /*   try {
