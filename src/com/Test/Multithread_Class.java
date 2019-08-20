@@ -9,18 +9,20 @@ import java.nio.file.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Multithread_Class{
-    public static final String PATH = "C:\\Users\\tomasz.szerel\\IdeaProjects\\Test_app\\Files\\";
-
-
-
 
     public static void main(String[] args){
-        WatchService watchService=null;
+        Task2_Class t2 = new Task2_Class();
+        Logger_Class l = new Logger_Class();
+        t2.getPropValues();
+        System.out.println(t2.db_user);
 
+         final String PATH =t2.root_path;
+        WatchService watchService=null;
         Path dir = Paths.get(PATH);
         String FINAL_PATH=null;
 
@@ -50,8 +52,10 @@ public class Multithread_Class{
             try (BufferedReader bufferedReader = new BufferedReader(new FileReader(FINAL_PATH))) {
 
                 while ((line = bufferedReader.readLine()) != null) {
+
                     if (header != 0 && !line.startsWith("Trailer")) {
                         String[] data = line.split(split);
+
                         System.out.println(data[0] + "|" + data[1] + "|" + data[2]+ "|" + data[3]+ "|" + data[4]+ "|" + data[5]+ "|" + data[6]+ "|" + data[7]+ "|" + data[8]+ "|" + data[9]+ "|" + data[10]
                                 + "|" + data[11]+ "|" + data[12]+ "|" + data[13]+ "|" + data[14]+ "|" + data[15]+ "|" + data[16]+ "|" + data[17]+ "|" + data[18]+ "|" + data[19]+ "|" + data[20]+ "|" + data[21]
                                 + "|" + data[22]+ "|" + data[23]+ "|" + data[24]+ "|" + data[25]+ "|" + data[26]+ "|" + data[27]+ "|" + data[28]+ "|" + data[29]+ "|" + data[30]+ "|" + data[31]+ "|" + data[32]
@@ -70,9 +74,10 @@ public class Multithread_Class{
                 System.out.println("IOException:" + e);
             }
         }
-
+        l.log();
         Task1_Class t = new Task1_Class();
         t.connctdata();
+
 
 
          /*   try {
